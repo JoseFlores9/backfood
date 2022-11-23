@@ -8,6 +8,7 @@ class Server {
         this.app = express();
         this.port = process.env.PORT
         this.productsPath = '/api/products'
+        this.categoriesPath = '/api/categories'
 
         this.conectarDB()
 
@@ -33,6 +34,7 @@ class Server {
 
     routes() {
         this.app.use(this.productsPath, require('../routes/products'));
+        this.app.use(this.categoriesPath, require('../routes/categories'));
     }
 
     listen() {
