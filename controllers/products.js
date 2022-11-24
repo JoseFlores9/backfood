@@ -3,7 +3,11 @@ const { response } = require('express')
 const Product = require('../models/product')
 
 const productsGet = async(req, res = response) => {
-    const products = await Product.find()
+    const { category } = req.query
+    const query = {
+        "category": category
+    }
+    const products = await Product.find(query)
     res.json({
         msg: "get API - controlador",
         products
