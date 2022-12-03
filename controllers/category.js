@@ -3,10 +3,10 @@ const { response } = require('express')
 const Category = require('../models/category')
 
 const categoriesGet = async(req, res = response) => {
-    // const categories = await Category.find()
+    const categories = await Category.find()
     res.json({
         msg: "get API - controlador",
-        // categories
+        categories
     })
 }
 
