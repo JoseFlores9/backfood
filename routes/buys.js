@@ -1,15 +1,13 @@
 const { Router } = require('express')
-const {buyoutGet, buyoutPost } = require('../controllers/buyout')
+const { buyoutAll } = require('../controllers/buys')
 const { validateJWT } = require('../middlewares/validate-jwt')
 
 const router = Router()
 
-router.get('/:id', [
+router.get('/', [
     validateJWT
-], buyoutGet)
+], buyoutAll)
 
-router.post('/',[
-    validateJWT
-],buyoutPost)
+
 
 module.exports = router

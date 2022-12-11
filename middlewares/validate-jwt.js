@@ -10,9 +10,8 @@ const validateJWT = (req, res = response, next) => {
     }
 
     try {
-        const { _id } = jwt.verify( token, process.env.SECRETORPRIVATEKEY)
-
-        req._id = _id
+        const { uid } = jwt.verify( token, process.env.SECRETORPRIVATEKEY)
+        req._id = uid
         next()
     } catch (error) {
         console.log(error)
