@@ -12,7 +12,7 @@ class Server {
         this.authPath = '/api/auth'
         this.usersPath = '/api/users'
         this.buyoutPath = '/api/buy'
-
+        this.buysPath = '/api/all/buys'
         this.conectarDB()
 
         // Middlewares
@@ -41,8 +41,8 @@ class Server {
         this.app.use(this.categoriesPath, require('../routes/categories'));
         this.app.use(this.usersPath, require('../routes/users'))
         this.app.use(this.buyoutPath, require('../routes/buyout'))
+        this.app.use(this.buysPath, require('../routes/buys'))
     }
-
     listen() {
         this.app.listen(this.port, () => {})
     }
