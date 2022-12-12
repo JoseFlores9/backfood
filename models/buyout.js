@@ -12,6 +12,10 @@ const BuyoutSchema = Schema({
     total: {
         type: Number,
         required: [true, 'El total es requerido']
+    },
+    buy_date: {
+        type: Date,
+        required: [true, 'La fecha de compra es requerida']
     }
 })
 

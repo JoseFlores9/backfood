@@ -25,7 +25,8 @@ const buyoutGet = async(req, res = response) => {
     let response = {
         "id": buyout._id,
         "products": resposeProds,
-        "total": buyout.total
+        "total": buyout.total,
+        "buy_date": buyout.buy_date
     }
 
     res.json({
@@ -35,9 +36,10 @@ const buyoutGet = async(req, res = response) => {
 }
 
 const buyoutPost = async(req, res = response) => {
-    const { products, total } = req.body
+    const { products, total, buy_date } = req.body
     const user = req._id
-    const buyout = new Buyout({ user, products, total })
+
+    const buyout = new Buyout({ user, products, total, buy_date })
     await buyout.save()
     products.map(async (prod, index) => {
         await Products.findByIdAndUpdate(prod.id,
